@@ -1,0 +1,2 @@
+const router=require('express').Router();const c=require('../controllers/adminController');const support=require('../controllers/supportController');const {protect,allowRoles}=require('../middleware/auth');
+router.use(protect,allowRoles('admin'));router.get('/overview',c.overview);router.get('/users',c.users);router.patch('/users/:id',c.updateUser);router.patch('/listings/:id',c.moderateListing);router.patch('/posts/:id',c.moderatePost);router.get('/support',support.list);router.patch('/support/:id',support.update);module.exports=router;

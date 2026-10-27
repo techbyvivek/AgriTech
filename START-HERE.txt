@@ -1,0 +1,29 @@
+AGRI-TECH — START HERE (Windows)
+================================
+
+1) Install Node.js 20 LTS and MongoDB Community Server.
+2) Copy server\.env.example to server\.env.
+3) In server\.env, set a private JWT_SECRET (at least 32 characters).
+   Keep the local MongoDB URI unless your database uses another address.
+4) Make sure MongoDB is running.
+5) Open this project folder in VS Code.
+6) Run start-windows.bat, OR use two terminals:
+   Terminal A:
+      cd server
+      npm install
+      npm run dev
+   Terminal B:
+      cd client
+      npm install
+      npm run dev
+7) Open http://localhost:5173.
+8) Register as Farmer, Customer, or Service Provider.
+9) To create an admin account:
+      cd server
+      npm run create-admin
+
+Weather requires an OpenWeather API key in server\.env.
+API health endpoint: http://localhost:8000/api/v1/health
+
+This is a functional starter, not a production-certified system. Review README.md
+for implemented features and limitations before deployment.
