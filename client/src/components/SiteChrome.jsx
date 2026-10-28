@@ -1,5 +1,6 @@
+import React from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
-import { Sprout, Menu, Globe2, LogOut, LayoutDashboard } from 'react-icons/lu';
+import { Sprout, Menu, Globe2, LogOut, LayoutDashboard } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 const labels = { en: {home:'Home', marketplace:'Marketplace', weather:'Weather', dashboard:'Dashboard', login:'Log in', start:'Get started'}, hi:{home:'होम',marketplace:'बाज़ार',weather:'मौसम',dashboard:'डैशबोर्ड',login:'लॉग इन',start:'शुरू करें'} };
 export function SiteNav({lang,setLang}) { const {user,logout}=useAuth(); const nav=useNavigate(); const t=labels[lang]; async function signout(){await logout();nav('/');}

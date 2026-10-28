@@ -1,6 +1,7 @@
+import React from 'react';
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Sprout, ArrowRight, Eye, EyeOff } from 'react-icons/lu';
+import { Sprout, ArrowRight, Eye, EyeOff } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 export default function AuthPage({mode='login',lang='en'}){const isRegister=mode==='register';const {login,register}=useAuth();const nav=useNavigate();const [show,setShow]=useState(false);const [busy,setBusy]=useState(false);const [error,setError]=useState('');const [form,setForm]=useState({name:'',email:'',password:'',phone:'',role:'farmer',preferredLanguage:lang});function change(e){setForm({...form,[e.target.name]:e.target.value});}
 async function submit(e){e.preventDefault();setError('');setBusy(true);try{if(isRegister)await register(form);else await login({email:form.email,password:form.password});nav('/dashboard');}catch(err){setError(err.response?.data?.message||'Unable to complete your request. Check the server and try again.');}finally{setBusy(false);}}

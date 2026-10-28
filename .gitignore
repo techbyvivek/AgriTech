@@ -1,25 +1,196 @@
-# Dependencies
+# ==========================================
+
+# DEPENDENCIES
+
+# ==========================================
+
 node_modules/
 **/node_modules/
 
-# Environment variables and secrets
+# ==========================================
+
+# ENVIRONMENT VARIABLES AND SECRETS
+
+# ==========================================
+
 .env
 .env.*
 !.env.example
 !.env.*.example
 
-# Build output
+# ==========================================
+
+# BUILD OUTPUT
+
+# ==========================================
+
 dist/
 **/dist/
+build/
+**/build/
+out/
+.next/
+.nuxt/
 
-# Logs
+# ==========================================
+
+# LOG FILES
+
+# ==========================================
+
 *.log
 npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
 
-# Operating system files
+# ==========================================
+
+# OPERATING SYSTEM FILES
+
+# ==========================================
+
 .DS_Store
+.DS_Store?
 Thumbs.db
+desktop.ini
+$RECYCLE.BIN/
 
-# IDE files
+# ==========================================
+
+# IDE AND EDITOR FILES
+
+# ==========================================
+
 .vscode/
 .idea/
+*.swp
+*.swo
+*~
+.project
+.classpath
+.settings/
+
+# ==========================================
+
+# CACHE FILES
+
+# ==========================================
+
+.cache/
+**/.cache/
+.eslintcache
+.parcel-cache/
+.vite/
+**/.vite/
+.npm/
+.yarn/cache/
+
+# ==========================================
+
+# TESTING AND COVERAGE
+
+# ==========================================
+
+coverage/
+**/coverage/
+.nyc_output/
+test-results/
+playwright-report/
+
+# ==========================================
+
+# TEMPORARY AND BACKUP FILES
+
+# ==========================================
+
+tmp/
+temp/
+*.tmp
+*.temp
+*.bak
+*.old
+*.orig
+*.rej
+
+# ==========================================
+
+# DATABASE FILES AND LOCAL DATA
+
+# ==========================================
+
+*.sqlite
+*.sqlite3
+*.db
+dump/
+backups/
+
+# ==========================================
+
+# DEBUGGING AND PROFILING
+
+# ==========================================
+
+*.pid
+*.pid.lock
+*.seed
+*.stackdump
+profile/
+*.prof
+
+# ==========================================
+
+# FRONTEND FRAMEWORK OUTPUT
+
+# ==========================================
+
+.vercel/
+.netlify/
+.angular/
+.svelte-kit/
+
+# ==========================================
+
+# GENERATED DOCUMENTATION
+
+# ==========================================
+
+docs/_build/
+
+# ==========================================
+
+# SECURITY AND CREDENTIAL FILES
+
+# ==========================================
+
+*.pem
+*.key
+*.p12
+*.pfx
+credentials.json
+service-account*.json
+
+# ==========================================
+
+# OPTIONAL LOCAL UPLOADS
+
+# Uncomment if uploads should not be committed
+
+# ==========================================
+
+# uploads/
+
+# storage/
+
+# public/uploads/
+
+# ==========================================
+
+# OPTIONAL LOCAL ENVIRONMENT FILES
+
+# ==========================================
+
+# Keep .env.example files tracked.
+
+# Never commit actual credentials or API keys.

@@ -1,4 +1,5 @@
-import {useEffect,useState} from 'react';import api from '../services/api';import {Sprout,Plus,Trash2} from 'react-icons/lu';
+import React from 'react';
+import {useEffect,useState} from 'react';import api from '../services/api';import {Sprout,Plus,Trash2} from 'lucide-react';
 export default function CropsPage(){const [farms,setFarms]=useState([]),[crops,setCrops]=useState([]),[error,setError]=useState(''),[loading,setLoading]=useState(true),[saving,setSaving]=useState(false);const [form,setForm]=useState({farm:'',cropName:'',variety:'',sowingDate:'',expectedHarvestDate:'',growthStage:'Seedling',notes:''});
 async function load(){setLoading(true);try{const [f,c]=await Promise.all([api.get('/farms'),api.get('/crops')]);setFarms(f.data.farms||[]);setCrops(c.data.crops||[]);if(!form.farm&&f.data.farms?.length)setForm(v=>({...v,farm:f.data.farms[0]._id}));setError('')}catch(e){setError(e.response?.data?.message||'Could not load crops. Ensure the backend and MongoDB are running.')}finally{setLoading(false)}}useEffect(()=>{load()},[]);
 async function submit(e){e.preventDefault();setSaving(true);setError('');try{await api.post('/crops',form);setForm(v=>({...v,cropName:'',variety:'',sowingDate:'',expectedHarvestDate:'',notes:''}));await load()}catch(e){setError(e.response?.data?.message||'Unable to save crop.')}finally{setSaving(false)}}

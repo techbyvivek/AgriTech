@@ -1,4 +1,5 @@
-import { useEffect,useState } from 'react';import api from '../services/api';import { MapPinned,Plus,Trash2,RefreshCw } from 'react-icons/lu';
+import React from 'react';
+import { useEffect,useState } from 'react';import api from '../services/api';import { MapPinned,Plus,Trash2,RefreshCw } from 'lucide-react';
 export default function FarmsPage(){const [farms,setFarms]=useState([]);const [loading,setLoading]=useState(true);const [error,setError]=useState('');const [form,setForm]=useState({farmName:'',village:'',district:'',state:'Madhya Pradesh',area:'',areaUnit:'acres',soilType:'',irrigationType:''});const [saving,setSaving]=useState(false);
 async function load(){setLoading(true);try{const {data}=await api.get('/farms');setFarms(data.farms||[]);setError('')}catch(e){setError(e.response?.data?.message||'Could not load farms. Ensure the backend and MongoDB are running.')}finally{setLoading(false)}}useEffect(()=>{load()},[]);
 async function submit(e){e.preventDefault();setSaving(true);setError('');try{await api.post('/farms',{...form,area:Number(form.area),location:{village:form.village,district:form.district,state:form.state}});setForm({farmName:'',village:'',district:'',state:'Madhya Pradesh',area:'',areaUnit:'acres',soilType:'',irrigationType:''});await load()}catch(e){setError(e.response?.data?.message||'Unable to save farm.')}finally{setSaving(false)}}
